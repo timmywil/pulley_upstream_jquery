@@ -217,12 +217,10 @@ function commit( pull ) {
 
 			getHEAD(function( oldCommit ) {
 				// Thanks to: https://gist.github.com/927052
-				process.stdout.write( "\n\noldCommit: " + oldCommit + "\ncommit: " + commit + "\n\n");
 				spawn( "git", commit, { customFds:
 						[ process.stdin, process.stdout, process.stderr ] } )
 					.on("exit", function() {
 						getHEAD(function( newCommit ) {
-							process.stdout.write( "\nnewCommit: " + newCommit );
 							if ( oldCommit === newCommit ) {
 								reset( "No commit, aborting push." );
 
@@ -266,7 +264,7 @@ function closePull( commit ) {
 function getHEAD( fn ) {
 	exec( "git log | head -1", function( error, stdout, stderr ) {
 		var commit = (/commit (.*)/.exec( stdout ) || [])[1];
-		process.stdout.write( "\ncommit: " + commit );
+
 		fn( commit );
 	});
 }
