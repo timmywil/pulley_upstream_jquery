@@ -1,6 +1,8 @@
 Pulley: An Easy Github Pull Request Lander
 ==========================================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/timmywil/pulley_upstream_jquery.svg)](https://greenkeeper.io/)
+
 Landing a pull request from Github can be annoying. You can follow the instructions provided by Github (pulling the code, doing a merge) but that'll result in a messy commit stream and external ticket trackers that don't automatically close tickets.
 
 Additionally you can pull the code and squash it down into a single commit, which lets you format the commit nicely (closing tickets on external trackers) - but it fails to properly close the pull request.
